@@ -1,5 +1,19 @@
 package com.example.shayak.eeelabapp
 
+/**
+ * This is the activity that will load when the user clicks one of the subjects in the
+ * MainActivity.
+ *
+ * Currently the list of experiments is hardcoded but soon it will be made dynamic.
+ *
+ * Clicking on 'WATCH VIDEO' will open the corresponding experiment's demonstration video
+ * Clicking on 'VIEW MATERIAL' will open the corresponding experiment's writeup
+ *
+ * @author Shayak Banerjee
+ * @version 0.1
+ * @since 23rd Dec, 2018
+ */
+
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -42,6 +56,9 @@ class SubjectActivity : AppCompatActivity() {
         listView.isFocusable = false
     }
 
+    /**
+     * Adapter class for the listView
+     */
     class ExperimentsListAdapter(val context: Context, var listOfExperiments: ArrayList<Experiment>):BaseAdapter(){
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             val experiment = listOfExperiments[p0]
@@ -51,10 +68,17 @@ class SubjectActivity : AppCompatActivity() {
             return listView
         }
 
+        /**
+         * @return experiment of type Experiment. Contains details about the experiment
+         * and must be passed in the intent to the ExperimentActivity
+         */
         override fun getItem(p0: Int): Any = listOfExperiments[p0]
 
         override fun getItemId(p0: Int): Long = p0.toLong()
 
+        /**
+         * returns the number of items in the list.
+         */
         override fun getCount(): Int = listOfExperiments.size
 
     }
