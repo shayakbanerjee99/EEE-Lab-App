@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/gray_10">
+
+    <!--android:elevation adds drop shadow-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:elevation="10dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/experiment_card_background"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp">
+
+        <TextView
+            android:id="@+id/textViewExperimentName"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Measurement of resistance"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="26sp"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="#000000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_weight="1"
+                android:text="VIEW MATERIAL"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:clickable="true"
+                android:background="@drawable/view_material_button"/>
+
+            <View
+                android:layout_width="2px"
+                android:layout_height="45dp"
+                android:background="#000000"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_weight="1"
+                android:text="WATCH VIDEO"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:clickable="true"
+                android:background="@drawable/watch_video_button"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
