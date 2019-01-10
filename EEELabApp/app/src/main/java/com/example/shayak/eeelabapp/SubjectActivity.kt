@@ -15,12 +15,15 @@ package com.example.shayak.eeelabapp
  */
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_subject.*
 import kotlinx.android.synthetic.main.experiment_card.view.*
 
@@ -33,12 +36,14 @@ class SubjectActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_subject)
 
+        val videoLink = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+
         //load subjects
-        listOfExperiments.add(Experiment("Measurement of resistance", "", ""))
-        listOfExperiments.add(Experiment("Measurement of resistance", "", ""))
-        listOfExperiments.add(Experiment("Measurement of resistance", "", ""))
-        listOfExperiments.add(Experiment("Measurement of resistance", "", ""))
-        listOfExperiments.add(Experiment("Measurement of resistance", "", ""))
+        listOfExperiments.add(Experiment("Measurement of resistance", "", videoLink))
+        listOfExperiments.add(Experiment("Measurement of voltage", "", videoLink))
+        listOfExperiments.add(Experiment("Measurement of current", "", videoLink))
+        listOfExperiments.add(Experiment("Measurement of flux", "", videoLink))
+        listOfExperiments.add(Experiment("Measurement of field strength", "", videoLink))
 
         //setting ListAdapter
         experimentsListAdapter = ExperimentsListAdapter(this, listOfExperiments)
@@ -57,6 +62,37 @@ class SubjectActivity : AppCompatActivity() {
     }
 
     /**
+     * Starts ExperimentActivity when 'VIEW MATERIAL' is clicked.
+     * @args view experimentNameTextView from experiment_card.xml
+     */
+    fun startExperimentActivity(view: View){
+
+        val textView = view as TextView
+        val experimentName = textView.tag
+
+        val intent = Intent(this, ExperimentActivity::class.java)
+        intent.putExtra("experimentName", experimentName.toString())
+
+        startActivity(intent)
+    }
+
+    /**
+     * Launches Video when 'VIEW VIDEO' is clicked
+     * @args view experimentNameTextView from experiment_card.xml
+     */
+    fun startWatchVideo(view: View){
+
+        val textView = view as TextView
+        val videoLink = textView.tag as String
+
+        val intent = Intent(android.content.Intent.ACTION_VIEW)
+        val data = Uri.parse(videoLink)
+        intent.setDataAndType(data, "video/*")
+
+        startActivity(intent)
+    }
+
+    /**
      * Adapter class for the listView
      */
     class ExperimentsListAdapter(val context: Context, var listOfExperiments: ArrayList<Experiment>):BaseAdapter(){
@@ -65,6 +101,8 @@ class SubjectActivity : AppCompatActivity() {
             var inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             var listView = inflater.inflate(R.layout.experiment_card, null)
             listView.textViewExperimentName.text = experiment.experimentName
+            listView.textViewViewMaterial.tag = experiment.experimentName
+            listView.textViewWatchVideo.tag = experiment.videoLink
             return listView
         }
 
@@ -82,6 +120,8 @@ class SubjectActivity : AppCompatActivity() {
         override fun getCount(): Int = listOfExperiments.size
 
     }
+
+
 
 
 }
