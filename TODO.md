@@ -9,6 +9,7 @@ TODO
 1. - [ ] Navigation Drawer  
 
 **Code**
+1. - [ ] Change the name of the app to 'Farrah'
 1. - [x] MainActivity
 1. - [x] SubjectActivity
 1. - [x] Experiment
