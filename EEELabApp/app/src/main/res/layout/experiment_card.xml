@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- This Layout is loaded in the SubjectActivity and appears as cards in a list. The card contains
+a title text which is the name of the subject and two buttons - 'VIEW MATERIAL' and 'WATCH VIDEO'
+respectively. 'VIEW MATERIAL' loads course related text material and resources. 'WATCH VIDEO' loads
+a video demonstrating the experiment-->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -32,6 +38,7 @@
             android:textSize="26sp"
             android:layout_marginBottom="20dp"/>
 
+        <!--This is a horizontal divider line that separates the buttons from textViewExperimentName-->
         <View
             android:layout_width="match_parent"
             android:layout_height="2px"
@@ -43,7 +50,7 @@
             android:orientation="horizontal">
 
 
-
+            <!--This TextView works like a button-->
             <TextView
                 android:id="@+id/textViewViewMaterial"
                 android:layout_width="match_parent"
@@ -59,11 +66,13 @@
                 android:background="@drawable/view_material_button"
                 android:onClick="startExperimentActivity" />
 
+            <!--This view is a divider line between the two buttons 'VIEW MATERIALS' and 'WATCH VIDEO'-->
             <View
                 android:layout_width="2px"
                 android:layout_height="45dp"
                 android:background="#000000"/>
 
+            <!--This TextView works like a button-->
             <TextView
                 android:id="@+id/textViewWatchVideo"
                 android:layout_width="match_parent"
