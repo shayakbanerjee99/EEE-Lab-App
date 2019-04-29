@@ -1,4 +1,5 @@
-# faRRah
+# Farrah
+(free access to ready-made resources and handouts) 
 This project is being developed by Aakash Research Labs, SRMIST Kattankulathur. This app will contain writeups and play videos demonstrating the lab experiments of the EEE department.  
 
 ## Openning the project
